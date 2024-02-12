@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quran Surah Cards</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  
+  header {
+            background: linear-gradient(to right, rgba(255, 0, 0, 1), rgba(0, 0, 0, 1));
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+            width: 100%;
+        }
+
+
+  #surahCards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .card {
+    width: 200px;
+    height: 180px;
+    background: linear-gradient(to right, rgb(161, 7, 7), rgba(0, 0, 0, 1));
+color: #ffc400;
+    border-radius: 8px;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .card:hover {
+    transform: scale(1.05);
+  }
+  .audio-btn {
+    background-color: #f6f8f6;
+    color: rgb(0, 0, 0);
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .audio-btn:hover {
+    background-color: #f7d305;
+  }
+
+  
+  footer {
+            background: linear-gradient(to right, rgba(255, 0, 0, 1), rgba(0, 0, 0, 1));
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+            bottom: 0;
+            width: 100%;
+            
+        }
+</style>
+</head>
+<body>
+  <header>
+    <h1>Quran Kides Learning Services</h1>
+</header>
+<div id="surahCards"></div>
+
+    <footer>
+        <p>&copy; 2024 Quran Kides Learning Services of Muslim Quran. All rights reserved.</p>
+    </footer>
+<script>
+  const surahs = [
+  "Al-Fatiha", "Al-Baqarah", "Al-Imran", "An-Nisa'", "Al-Ma'idah",
+"Al-An'am", "Al-A'raf", "Al-Anfal", "At-Tawbah", "Yunus",
+"Hud", "Yusuf", "Ar-Ra'd", "Ibrahim", "Al-Hijr",
+"An-Nahl", "Al-Isra'", "Al-Kahf", "Maryam", "Ta-Ha",
+"Al-Anbiya'", "Al-Hajj", "Al-Mu'minun", "An-Nur", "Al-Furqan",
+"Ash-Shu'ara'", "An-Naml", "Al-Qasas", "Al-Ankabut", "Ar-Rum",
+"Luqman", "As-Sajda", "Al-Ahzab", "Saba'", "Fatir",
+"Ya-Sin", "As-Saffat", "Sad", "Az-Zumar", "Ghafir",
+"Fussilat", "Ash-Shura", "Az-Zukhruf", "Ad-Dukhan", "Al-Jathiyah",
+"Al-Ahqaf", "Muhammad", "Al-Fath", "Al-Hujurat", "Qaf",
+"Adh-Dhariyat", "At-Tur", "An-Najm", "Al-Qamar", "Ar-Rahman",
+"Al-Waqi'ah", "Al-Hadid", "Al-Mujadila", "Al-Hashr", "Al-Mumtahanah",
+"As-Saff", "Al-Jumu'ah", "Al-Munafiqun", "At-Taghabun", "At-Talaq",
+"At-Tahrim", "Al-Mulk", "Al-Qalam", "Al-Haqqah", "Al-Ma'arij",
+"Nuh", "Al-Jinn", "Al-Muzzammil", "Al-Muddathir", "Al-Qiyamah",
+"Al-Insan", "Al-Mursalat", "An-Naba'", "An-Nazi'at", "Abasa",
+"At-Takwir", "Al-Infitar", "Al-Mutaffifin", "Al-Inshiqaq", "Al-Buruj",
+"At-Tariq", "Al-A'la", "Al-Ghashiyah", "Al-Fajr", "Al-Balad",
+"Ash-Shams", "Al-Layl", "Ad-Duha", "Ash-Sharh", "At-Tin",
+"Al-'Alaq", "Al-Qadr", "Al-Bayyinah", "Az-Zalzalah", "Al-'Adiyat",
+"Al-Qari'ah", "At-Takathur", "Al-Asr", "Al-Humazah", "Al-Fil",
+"Quraysh", "Al-Ma'un", "Al-Kawthar", "Al-Kafirun", "An-Nasr",
+"Al-Masad", "Al-Ikhlas", "Al-Falaq", "An-Nas"
+
+    // ... (rest of the surahs)
+  ];
+
+  const surahsAudioUrls = [
+  "audio/1.mp3", "audio/2.mp3", "audio/3.mp3", "audio/4.mp3", "audio/5.mp3",
+"audio/6.mp3", "audio/7.mp3", "audio/8.mp3", "audio/9.mp3", "audio/10.mp3",
+"audio/11.mp3", "audio/12.mp3", "audio/13.mp3", "audio/14.mp3", "audio/15.mp3",
+"audio/16.mp3", "audio/17.mp3", "audio/18.mp3", "audio/19.mp3", "audio/20.mp3",
+"audio/21.mp3", "audio/22.mp3", "audio/23.mp3", "audio/24.mp3", "audio/25.mp3",
+"audio/26.mp3", "audio/27.mp3", "audio/28.mp3", "audio/29.mp3", "audio/30.mp3",
+"audio/31.mp3", "audio/32.mp3", "audio/33.mp3", "audio/34.mp3", "audio/35.mp3",
+"audio/36.mp3", "audio/37.mp3", "audio/38.mp3", "audio/39.mp3", "audio/40.mp3",
+"audio/41.mp3", "audio/42.mp3", "audio/43.mp3", "audio/44.mp3", "audio/45.mp3",
+"audio/46.mp3", "audio/47.mp3", "audio/48.mp3", "audio/49.mp3", "audio/50.mp3",
+"audio/51.mp3", "audio/52.mp3", "audio/53.mp3", "audio/54.mp3", "audio/55.mp3",
+"audio/56.mp3", "audio/57.mp3", "audio/58.mp3", "audio/59.mp3", "audio/60.mp3",
+"audio/61.mp3", "audio/62.mp3", "audio/63.mp3", "audio/64.mp3", "audio/65.mp3",
+"audio/66.mp3", "audio/67.mp3", "audio/68.mp3", "audio/69.mp3", "audio/70.mp3",
+"audio/71.mp3", "audio/72.mp3", "audio/73.mp3", "audio/74.mp3", "audio/75.mp3",
+"audio/76.mp3", "audio/77.mp3", "audio/78.mp3", "audio/79.mp3", "audio/80.mp3",
+"audio/81.mp3", "audio/82.mp3", "audio/83.mp3", "audio/84.mp3", "audio/85.mp3",
+"audio/86.mp3", "audio/87.mp3", "audio/88.mp3", "audio/89.mp3", "audio/90.mp3",
+"audio/91.mp3", "audio/92.mp3", "audio/93.mp3", "audio/94.mp3", "audio/95.mp3",
+"audio/96.mp3", "audio/97.mp3", "audio/98.mp3", "audio/99.mp3", "audio/100.mp3",
+"audio/101.mp3", "audio/102.mp3", "audio/103.mp3", "audio/104.mp3", "audio/105.mp3",
+"audio/106.mp3", "audio/107.mp3", "audio/108.mp3", "audio/109.mp3", "audio/110.mp3",
+"audio/111.mp3", "audio/112.mp3", "audio/113.mp3", "audio/114.mp3"
+
+    // ... (rest of the audio URLs)
+  ];
+
+  const surahCardsContainer = document.getElementById("surahCards");
+
+  surahs.forEach((surah, index) => {
+    const card = document.createElement("div");
+    card.classList.add("card");
+    card.innerHTML = `
+      <div>${surah}</div>
+      <audio id="audio${index}" src="${surahsAudioUrls[index]}"></audio>
+      <button class="audio-btn" onclick="toggleAudio(${index})">Play Audio</button>
+    `;
+    surahCardsContainer.appendChild(card);
+  });
+
+  function toggleAudio(index) {
+    const audio = document.getElementById(`audio${index}`);
+    if (audio.paused) {
+      audio.play();
+    } else {
+      audio.pause();
+    }
+  }
+</script>
+
+</body>
+</html>

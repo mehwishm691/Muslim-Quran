@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Cards with Audio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .recipe-card {
+            text-align: center;
+            padding: 20px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+        }
+
+        .audio-player {
+            width: 100%;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="recipe-card" id="recipe1">
+        <h2>Recipe 1</h2>
+        <button onclick="playAudio('audio1.mp3')">Play Audio</button>
+        <div class="audio-player" id="audio-player1"></div>
+    </div>
+
+    <div class="recipe-card" id="recipe2">
+        <h2>Recipe 2</h2>
+        <button onclick="playAudio('audio2.mp3')">Play Audio</button>
+        <div class="audio-player" id="audio-player2"></div>
+    </div>
+
+    <script>
+        function playAudio(audioSrc) {
+            var audioPlayer = new Audio(audioSrc);
+            audioPlayer.play();
+            var audioPlayerContainer = document.createElement('div');
+            audioPlayerContainer.classList.add('audio-player');
+            audioPlayerContainer.innerHTML = 'Audio is playing...';
+            
+            // Assuming you want to replace existing audio player
+            var recipeId = audioSrc === 'audio1.mp3' ? 'recipe1' : 'recipe2';
+            var existingAudioPlayer = document.getElementById(recipeId).getElementsByClassName('audio-player')[0];
+            existingAudioPlayer.replaceWith(audioPlayerContainer);
+        }
+    </script>
+</body>
+</html>

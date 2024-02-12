@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quran Surah Cards</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            padding: 20px;
+            background-color: rgb(10, 10, 10);
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: linear-gradient(135deg, #030303, #770f04);
+            /* Use your preferred gradient colors */
+            color: #fff;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+        }
+
+        .recite-button {
+            background-color: #fff8f8;
+            color: #020202;
+
+            border: 1px solid #3498db;
+            padding: 5px 35px;
+
+            border-radius: 5px;
+            cursor: pointer;
+
+        }
+
+        .recite-button:hover {
+            background-color: #3498db;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+    <div id="surahContainer" class="grid-container"></div>
+
+
+  
+    
+
+
+
+
+
+
+
+    <script>
+
+        // Sample data for all 114 surahs
+        const surahs = [{ name: "Al-Fatiha", translation: "The Opening", chapterNumber: 1, theme:
+         "Essence of prayer", significance: "Recited in every unit of Salah" },
+
+
+         
+            { name: "Al-Baqarah", translation: "The Cow", chapterNumber: 2, theme: "Guidance for mankind", significance: "Longest surah in the Quran" },
+            { name: "Aal-E-Imran", translation: "The Family of Imran", chapterNumber: 3, theme: "Story of Imran's family", significance: "Mentions Mary and the family of Imran" },
+            // Add data for the remaining surahs here...
+
+            // Continue from where you left off...
+            { name: "An-Nisa", translation: "The Women", chapterNumber: 4, theme: "Rights and responsibilities of women", significance: "Deals with issues related to women and family" },
+            { name: "Al-Ma'idah", translation: "The Table Spread", chapterNumber: 5, theme: "Legal and dietary laws", significance: "Addresses various legal and dietary matters" },
+            { name: "Al-An'am", translation: "The Cattle", chapterNumber: 6, theme: "Oneness of Allah and guidance", significance: "Emphasizes the oneness of Allah and provides guidance" },
+            // Add data for the remaining surahs here...
+
+            // Continue with the next set of surahs...
+            { name: "Al-A'raf", translation: "The Heights", chapterNumber: 7, theme: "Stories of past prophets", significance: "Narrates stories of various prophets" },
+            { name: "Al-Anfal", translation: "The Spoils of War", chapterNumber: 8, theme: "Battle of Badr and lessons", significance: "Deals with the Battle of Badr and its lessons" },
+            { name: "At-Tawbah", translation: "The Repentance", chapterNumber: 9, theme: "Repentance and preparation for war", significance: "Focuses on repentance and preparation for war" },
+            // Add data for the remaining surahs here...
+
+            // Continue with the next set of surahs...
+            { name: "Yunus", translation: "Jonah", chapterNumber: 10, theme: "Stories of Prophet Jonah", significance: "Narrates the story of Prophet Jonah (Yunus)" },
+            { name: "Hud", translation: "Hud", chapterNumber: 11, theme: "Stories of past prophets", significance: "Narrates stories of various prophets, including Prophet Hud" },
+            { name: "Yusuf", translation: "Joseph", chapterNumber: 12, theme: "Story of Prophet Joseph", significance: "Narrates the story of Prophet Joseph (Yusuf)" },
+            // Add data for the remaining surahs here...
+
+            // ... and so on for the rest of the surahs.
+
+
+            // Continue from where you left off...
+            { name: "Ar-Ra'd", translation: "The Thunder", chapterNumber: 13, theme: "The greatness of Allah's creation", significance: "Emphasizes the importance of prayer" },
+            { name: "Ibrahim", translation: "Abraham", chapterNumber: 14, theme: "The story of Prophet Ibrahim", significance: "Highlights the life of Prophet Ibrahim and his unwavering faith" },
+            { name: "Al-Hijr", translation: "The Rocky Tract", chapterNumber: 15, theme: "Prophet Muhammad's opponents and their fate", significance: "Warns against the consequences of rejecting the message of Islam" },
+            // Add data for the remaining surahs here...
+
+            { name: "An-Nahl", translation: "The Bee", chapterNumber: 16, theme: "Signs of Allah in creation", significance: "Emphasizes the signs of Allah in the natural world" },
+            { name: "Al-Isra", translation: "The Night Journey", chapterNumber: 17, theme: "Prophet Muhammad's night journey", significance: "Describes the miraculous night journey of Prophet Muhammad" },
+            { name: "Al-Kahf", translation: "The Cave", chapterNumber: 18, theme: "Stories of young believers", significance: "Contains stories of young believers and lessons for the righteous" },
+            // Add data for the remaining surahs here...
+
+            { name: "Maryam", translation: "Mary", chapterNumber: 19, theme: "Story of Mary and birth of Jesus", significance: "Narrates the story of Mary and the miraculous birth of Jesus" },
+            { name: "Ta-Ha", translation: "Ta-Ha", chapterNumber: 20, theme: "Story of Prophet Moses", significance: "Narrates the story of Prophet Moses (Musa)" },
+            { name: "Al-Anbiya", translation: "The Prophets", chapterNumber: 21, theme: "Stories of various prophets", significance: "Highlights the stories of several prophets" },
+            // Add data for the remaining surahs here...
+
+            // Continue this pattern for the rest of the surahs.
+
+
+
+
+            // Continue from where you left off...
+            { name: "Al-Hajj", translation: "The Pilgrimage", chapterNumber: 22, theme: "Pilgrimage to Mecca", significance: "Emphasizes the importance of the pilgrimage to Mecca" },
+            { name: "Al-Mu'minun", translation: "The Believers", chapterNumber: 23, theme: "Attributes of true believers", significance: "Describes the attributes and characteristics of true believers" },
+            { name: "An-Nur", translation: "The Light", chapterNumber: 24, theme: "Social and moral guidelines", significance: "Provides social and moral guidelines for the community" },
+            // Add data for the remaining surahs here...
+
+            { name: "Al-Furqan", translation: "The Criterion", chapterNumber: 25, theme: "Distinguishing right from wrong", significance: "Highlights the criterion to distinguish right from wrong" },
+            { name: "Ash-Shu'ara", translation: "The Poets", chapterNumber: 26, theme: "Stories of the poets", significance: "Narrates stories of poets and their response to divine messages" },
+            { name: "An-Naml", translation: "The Ant", chapterNumber: 27, theme: "Stories of Prophet Solomon", significance: "Narrates stories related to Prophet Solomon (Sulaiman)" },
+            // Add data for the remaining surahs here...
+
+            { name: "Al-Qasas", translation: "The Stories", chapterNumber: 28, theme: "Stories of the past", significance: "Narrates various stories from the past for lessons and reflection" },
+            { name: "Al-Ankabut", translation: "The Spider", chapterNumber: 29, theme: "Trials and perseverance", significance: "Addresses trials and the importance of perseverance in faith" },
+            { name: "Ar-Rum", translation: "The Romans", chapterNumber: 30, theme: "Prediction of Roman victory", significance: "Predicts the victory of the Romans over the Persians" },
+            // Add data for the remaining surahs here...
+
+            // Continue this pattern for the rest of the surahs.
+
+            // Continue from where you left off...
+            { name: "Luqman", translation: "Luqman", chapterNumber: 31, theme: "Wisdom and advice", significance: "Contains advice and wisdom from Luqman to his son" },
+            { name: "As-Sajda", translation: "The Prostration", chapterNumber: 32, theme: "Prostration and worship", significance: "Emphasizes the importance of prostration and worship" },
+            { name: "Al-Ahzab", translation: "The Confederates", chapterNumber: 33, theme: "The Battle of the Confederates", significance: "Describes the Battle of the Confederates and its lessons" },
+            // Add data for the remaining surahs here...
+
+            { name: "Saba", translation: "Sheba", chapterNumber: 34, theme: "Story of the people of Sheba", significance: "Narrates the story of the people of Sheba and their response to divine signs" },
+            { name: "Fatir", translation: "The Originator", chapterNumber: 35, theme: "Creation and sovereignty of Allah", significance: "Emphasizes the creation and sovereignty of Allah" },
+            { name: "Ya-Sin", translation: "Ya-Sin", chapterNumber: 36, theme: "Call to faith and resurrection", significance: "Calls to faith and highlights the concept of resurrection" },
+            // Add data for the remaining surahs here...
+
+            { name: "As-Saffat", translation: "Those Ranged in Ranks", chapterNumber: 37, theme: "Angels and their tasks", significance: "Describes the tasks and roles of angels in the universe" },
+            { name: "Sad", translation: "Sad", chapterNumber: 38, theme: "Story of Prophet David", significance: "Narrates the story of Prophet David (Dawud) and his wisdom" },
+            { name: "Az-Zumar", translation: "The Groups", chapterNumber: 39, theme: "Divine mercy and forgiveness", significance: "Emphasizes divine mercy and forgiveness for believers" },
+            // Add data for the remaining surahs here...
+
+            // Continue this pattern for the rest of the surahs.
+            // Continue from where you left off...
+            { name: "Ghafir", translation: "The Forgiver", chapterNumber: 40, theme: "Repentance and forgiveness", significance: "Emphasizes repentance and the forgiveness of Allah" },
+            { name: "Fussilat", translation: "Explained in Detail", chapterNumber: 41, theme: "Clear signs and explanations", significance: "Emphasizes the clarity and explanations of the Quranic verses" },
+            { name: "Ash-Shura", translation: "The Consultation", chapterNumber: 42, theme: "Consultation and decision-making", significance: "Emphasizes the importance of consultation in decision-making" },
+            // Add data for the remaining surahs here...
+
+            { name: "Az-Zukhruf", translation: "The Gold Adornments", chapterNumber: 43, theme: "Truth versus falsehood", significance: "Contrasts the truth with falsehood and emphasizes the consequences of disbelief" },
+            { name: "Ad-Dukhan", translation: "The Smoke", chapterNumber: 44, theme: "Signs of impending judgment", significance: "Describes signs of the impending judgment and the consequences for the disbelievers" },
+            { name: "Al-Jathiya", translation: "The Crouching", chapterNumber: 45, theme: "Judgment and the nature of revelation", significance: "Addresses the nature of revelation and the Day of Judgment" },
+            // Add data for the remaining surahs here...
+
+            { name: "Al-Ahqaf", translation: "The Wind-Curved Sandhills", chapterNumber: 46, theme: "The stories of past prophets", significance: "Narrates stories of past prophets and their communities" },
+            { name: "Muhammad", translation: "Muhammad", chapterNumber: 47, theme: "Prophethood and the Battle of Badr", significance: "Emphasizes the significance of the prophethood and recounts the Battle of Badr" },
+            { name: "Al-Fath", translation: "The Victory", chapterNumber: 48, theme: "The Treaty of Hudaybiyyah", significance: "Describes the events surrounding the Treaty of Hudaybiyyah" },
+            // Add data for the remaining surahs here...
+
+            // Continue this pattern for the rest of the surahs.
+
+            // Continue from where you left off...
+            { name: "Al-Hujurat", translation: "The Rooms", chapterNumber: 49, theme: "Social etiquette and brotherhood", significance: "Emphasizes social etiquette, brotherhood, and unity among believers" },
+            { name: "Qaf", translation: "The Letter Qaf", chapterNumber: 50, theme: "Resurrection and the reality of life", significance: "Addresses the resurrection and the reality of life after death" },
+            { name: "Adh-Dhariyat", translation: "The Winnowing Winds", chapterNumber: 51, theme: "The Day of Judgment", significance: "Describes the events of the Day of Judgment and the consequences for disbelievers" },
+            // Add data for the remaining surahs here...
+
+            { name: "At-Tur", translation: "The Mount", chapterNumber: 52, theme: "The Day of Judgment and paradise", significance: "Describes the events of the Day of Judgment and the rewards of paradise" },
+            { name: "An-Najm", translation: "The Star", chapterNumber: 53, theme: "The journey of the Prophet's night ascension", significance: "Describes the journey of the Prophet's night ascension (Isra and Mi'raj)" },
+            { name: "Al-Qamar", translation: "The Moon", chapterNumber: 54, theme: "The splitting of the moon", significance: "Describes the miraculous event of the splitting of the moon" },
+            // Add data for the remaining surahs here...
+
+            { name: "Ar-Rahman", translation: "The Beneficent", chapterNumber: 55, theme: "The mercy of Allah", significance: "Highlights the mercy and blessings of Allah" },
+            { name: "Al-Waqi'a", translation: "The Inevitable", chapterNumber: 56, theme: "The events of the Day of Judgment", significance: "Describes the events of the Day of Judgment and the division of people into three groups" },
+            { name: "Al-Hadid", translation: "The Iron", chapterNumber: 57, theme: "Faith and hypocrites", significance: "Addresses the topics of faith and the characteristics of hypocrites" },
+            // Add data for the remaining surahs here...
+
+            // Continue this pattern for the rest of the surahs.
+
+
+            // Continue from where you left off...
+            { name: "Al-Mujadila", translation: "The Woman to be Examined", chapterNumber: 58, theme: "Social and legal matters", significance: "Addresses social and legal matters, including the treatment of wives" },
+            { name: "Al-Hashr", translation: "The Gathering", chapterNumber: 59, theme: "The expulsion of Banu Nadir", significance: "Describes the expulsion of Banu Nadir and lessons from their fate" },
+            { name: "Al-Mumtahanah", translation: "The Woman to be Examined", chapterNumber: 60, theme: "Social and political issues", significance: "Addresses social and political issues, including the treatment of non-Muslims" },
+            // Add data for the remaining surahs here...
+
+            { name: "As-Saff", translation: "The Ranks", chapterNumber: 61, theme: "Encouragement for charity and good deeds", significance: "Encourages charity and good deeds for the sake of Allah" },
+            { name: "Al-Jumu'a", translation: "The Friday Congregation", chapterNumber: 62, theme: "Friday congregational prayer", significance: "Emphasizes the importance of the Friday congregational prayer" },
+            { name: "Al-Munafiqun", translation: "The Hypocrites", chapterNumber: 63, theme: "The characteristics of hypocrites", significance: "Describes the characteristics and traits of hypocrites" },
+            // Add data for the remaining surahs here...
+
+            { name: "At-Taghabun", translation: "Mutual Disillusion", chapterNumber: 64, theme: "The consequences of ingratitude", significance: "Describes the consequences of ingratitude and the importance of gratitude" },
+            { name: "At-Talaq", translation: "Divorce", chapterNumber: 65, theme: "Rules and guidance regarding divorce", significance: "Provides rules and guidance regarding the process of divorce" },
+            { name: "At-Tahrim", translation: "The Prohibition", chapterNumber: 66, theme: "Incidents related to the Prophet's household", significance: "Addresses incidents related to the Prophet's household and lessons to be learned" },
+            // Add data for the remaining surahs here...
+
+            // Continue this pattern for the rest of the surahs.
+            // Continue from where you left off...
+            { name: "Al-Mulk", translation: "The Sovereignty", chapterNumber: 67, theme: "The sovereignty and dominion of Allah", significance: "Emphasizes the sovereignty and dominion of Allah over all creation" },
+            { name: "Al-Qalam", translation: "The Pen", chapterNumber: 68, theme: "The Divine Pen and the judgment", significance: "Highlights the importance of the Divine Pen and the impending judgment" },
+            { name: "Al-Haaqqa", translation: "The Inevitable", chapterNumber: 69, theme: "The events of the Day of Judgment", significance: "Describes the events of the Day of Judgment and the fate of disbelievers" },
+            // Add data for the remaining surahs here...
+
+            { name: "Al-Ma'arij", translation: "The Ascending Stairways", chapterNumber: 70, theme: "The questioning of disbelievers", significance: "Addresses the questioning of disbelievers on the Day of Judgment" },
+            { name: "Nuh", translation: "Noah", chapterNumber: 71, theme: "The story of Prophet Noah", significance: "Narrates the story of Prophet Noah (Nuh) and his call to his people" },
+            { name: "Al-Jinn", translation: "The Jinn", chapterNumber: 72, theme: "The nature of jinn and their response to the Quran", significance: "Discusses the nature of jinn and their response to the Quran" },
+            // Add data for the remaining surahs here...
+
+            { name: "Al-Muzzammil", translation: "The Enshrouded One", chapterNumber: 73, theme: "The Night Prayer and devotion", significance: "Encourages the Night Prayer and devotion to Allah" },
+            { name: "Al-Muddathir", translation: "The Cloaked One", chapterNumber: 74, theme: "The call to warn", significance: "Emphasizes the responsibility of the Prophet to warn the disbelievers" },
+            { name: "Al-Qiyama", translation: "The Resurrection", chapterNumber: 75, theme: "The reality of resurrection", significance: "Describes the reality of resurrection and the questioning on the Day of Judgment" },
+            // Add data for the remaining surahs here...
+
+            // Continue this pattern for the rest of the surahs.
+
+
+            // Continue from where you left off...
+            { name: "Al-Insan", translation: "Man", chapterNumber: 76, theme: "The righteous and their rewards", significance: "Describes the characteristics of the righteous and their rewards" },
+            { name: "Al-Mursalat", translation: "The Emissaries", chapterNumber: 77, theme: "The day of judgment and the messengers", significance: "Describes the events of the Day of Judgment and the roles of messengers" },
+            { name: "An-Naba", translation: "The Tidings", chapterNumber: 78, theme: "The Day of Judgment and accountability", significance: "Emphasizes the reality of the Day of Judgment and accountability" },
+            // Add data for the remaining surahs here...
+
+            { name: "An-Nazi'at", translation: "Those who drag forth", chapterNumber: 79, theme: "The end of the world and resurrection", significance: "Describes the end of the world and the resurrection of the dead" },
+            { name: "Abasa", translation: "He frowned", chapterNumber: 80, theme: "The Prophet's interaction with a blind man", significance: "Addresses the Prophet's interaction with a blind man and the consequences" },
+            { name: "At-Takwir", translation: "The Overthrowing", chapterNumber: 81, theme: "The cosmic events of the Day of Judgment", significance: "Describes the cosmic events and upheaval on the Day of Judgment" },
+            // Add data for the remaining surahs here...
+
+            { name: "Al-Infitar", translation: "The Cleaving", chapterNumber: 82, theme: "The revelations and the consequences", significance: "Emphasizes the significance of the revelations and the consequences for disbelievers" },
+            { name: "Al-Mutaffifin", translation: "Defrauding", chapterNumber: 83, theme: "Business ethics and justice", significance: "Addresses business ethics, justice, and consequences for fraudulent practices" },
+            { name: "Al-Inshiqaq", translation: "The Splitting Open", chapterNumber: 84, theme: "The events of the Day of Judgment", significance: "Describes the events and consequences on the Day of Judgment" },
+            // Add data for the remaining surahs here...
+
+            // Continue this pattern for the rest of the surahs.
+
+            // Continue from where you left off...
+            { name: "Al-Buruj", translation: "The Mansions of the Stars", chapterNumber: 85, theme: "Persecution of believers and divine retribution", significance: "Highlights the persecution of believers and the divine retribution for oppressors" },
+            { name: "At-Tariq", translation: "The Morning Star", chapterNumber: 86, theme: "The creation of man and accountability", significance: "Emphasizes the creation of man and the concept of accountability" },
+            { name: "Al-Ala", translation: "The Most High", chapterNumber: 87, theme: "The magnificence of Allah and guidance", significance: "Emphasizes the magnificence of Allah and provides guidance to humanity" },
+            // Add data for the remaining surahs here...
+
+            { name: "Al-Ghashiyah", translation: "The Overwhelming", chapterNumber: 88, theme: "The Day of Judgment and its consequences", significance: "Describes the overwhelming events of the Day of Judgment and their consequences" },
+            { name: "Al-Fajr", translation: "The Dawn", chapterNumber: 89, theme: "The cities of Aad and Thamud", significance: "Mentions the destruction of the cities of Aad and Thamud as a lesson" },
+            { name: "Al-Balad", translation: "The City", chapterNumber: 90, theme: "The righteousness of man", significance: "Emphasizes the righteousness of man and his choices" },
+            // Add data for the remaining surahs here...
+
+            { name: "Ash-Shams", translation: "The Sun", chapterNumber: 91, theme: "The oath of various celestial bodies", significance: "Includes oaths of various celestial bodies and their symbolic meanings" },
+            { name: "Al-Lail", translation: "The Night", chapterNumber: 92, theme: "The contrast between good and evil deeds", significance: "Emphasizes the contrast between good and evil deeds" },
+            { name: "Adh-Dhuha", translation: "The Morning Hours", chapterNumber: 93, theme: "Divine comfort and reassurance", significance: "Provides divine comfort and reassurance to the Prophet" },
+            // Add data for the remaining surahs here...
+
+            // Continue this pattern for the rest of the surahs.
+
+            // Continue from where you left off...
+            { name: "Ash-Sharh", translation: "The Relief", chapterNumber: 94, theme: "Divine consolation to the Prophet", significance: "Offers divine consolation and reassurance to the Prophet during challenging times" },
+            { name: "At-Tin", translation: "The Fig", chapterNumber: 95, theme: "The significance of creation", significance: "Highlights the significance of creation and the inherent dignity of man" },
+            { name: "Al-Alaq", translation: "The Clot", chapterNumber: 96, theme: "The first revelation and the importance of knowledge", significance: "Addresses the first revelation and emphasizes the importance of knowledge" },
+            // Add data for the remaining surahs here...
+
+            { name: "Al-Qadr", translation: "The Power", chapterNumber: 97, theme: "The Night of Power", significance: "Emphasizes the greatness of the Night of Power and its significance" },
+            { name: "Al-Bayyina", translation: "The Clear Proof", chapterNumber: 98, theme: "Faith and righteous deeds", significance: "Stresses the importance of faith and righteous deeds for salvation" },
+            { name: "Az-Zalzalah", translation: "The Earthquake", chapterNumber: 99, theme: "The events of the Day of Judgment", significance: "Describes the events of the Day of Judgment and their impact" },
+            // Add data for the remaining surahs here...
+
+            { name: "Al-Adiyat", translation: "The Charging Horses", chapterNumber: 100, theme: "The ingratitude of man", significance: "Addresses the ingratitude of man despite the bounties of Allah" },
+            { name: "Al-Qari'ah", translation: "The Striking Calamity", chapterNumber: 101, theme: "The consequences of deeds", significance: "Describes the consequences of deeds and the weighing of deeds on the Day of Judgment" },
+            { name: "At-Takathur", translation: "The Rivalry in World Increase", chapterNumber: 102, theme: "The distractions of worldly pursuits", significance: "Highlights the distractions of worldly pursuits and their consequences" },
+            // Add data for the remaining surahs here...
+
+            // Continue this pattern for the rest of the surahs.
+            // Continue from where you left off...
+            { name: "Al-Asr", translation: "The Time", chapterNumber: 103, theme: "The importance of time and righteous deeds", significance: "Emphasizes the importance of time and the necessity of righteous deeds" },
+            { name: "Al-Humazah", translation: "The Slanderer", chapterNumber: 104, theme: "Consequences of backbiting and slander", significance: "Highlights the consequences of backbiting and slander" },
+            { name: "Al-Fil", translation: "The Elephant", chapterNumber: 105, theme: "The miracle of the destruction of Abraha's army", significance: "Recalls the miraculous destruction of Abraha's army by birds" },
+            // Add data for the remaining surahs here...
+
+            { name: "Quraish", translation: "Quraish", chapterNumber: 106, theme: "The blessings and responsibilities of the Quraish tribe", significance: "Acknowledges the blessings and responsibilities of the Quraish tribe" },
+            { name: "Al-Ma'un", translation: "Small Kindnesses", chapterNumber: 107, theme: "The importance of small acts of kindness", significance: "Emphasizes the importance of small acts of kindness and compassion" },
+            { name: "Al-Kawthar", translation: "Abundance", chapterNumber: 108, theme: "Gratitude for Allah's abundance", significance: "Expresses gratitude for the abundance of blessings from Allah" },
+            // Add data for the remaining surahs here...
+
+            { name: "Al-Kafirun", translation: "The Disbelievers", chapterNumber: 109, theme: "The rejection of polytheism and idolatry", significance: "Declares the rejection of polytheism and idolatry" },
+            { name: "An-Nasr", translation: "The Help", chapterNumber: 110, theme: "The victory and success granted by Allah", significance: "Announces the victory and success granted by Allah" },
+            { name: "Al-Masad", translation: "The Palm Fiber", chapterNumber: 111, theme: "The consequences of disbelief and opposition", significance: "Describes the consequences of disbelief and opposition to the message" },
+            // Add data for the remaining surahs here...
+
+            // Continue this pattern for the rest of the surahs.
+
+            // Continue from where you left off...
+            { name: "Al-Ikhlas", translation: "The Sincerity", chapterNumber: 112, theme: "The oneness of Allah", significance: "Affirms the absolute oneness and uniqueness of Allah" },
+            { name: "Al-Falaq", translation: "The Daybreak", chapterNumber: 113, theme: "Seeking protection from evil", significance: "Seeks Allah's protection from various types of evils" },
+            { name: "An-Nas", translation: "Mankind", chapterNumber: 114, theme: "Seeking refuge in Allah", significance: "Seeks refuge in Allah from the evil of external and internal forces" },
+            // Add data for the remaining surahs here...
+
+            // Continue this pattern for the rest of the surahs.
+
+    ]
+
+
+            // Function to create a card for each surah
+            function createSurahCard(surah) {
+                const card = document.createElement('div');
+                card.classList.add('card');
+
+                const gradient = document.createElement('div');
+                gradient.classList.add('gradient');
+                card.appendChild(gradient);
+
+                const details = document.createElement('div');
+                details.innerHTML = `
+        <h3>${surah.name}</h3>
+        <p><strong>Translation:</strong> ${surah.translation}</p>
+        <p><strong>Chapter Number:</strong> ${surah.chapterNumber}</p>
+        <p><strong>Theme/Key Message:</strong> ${surah.theme}</p>
+        <p><strong>Significance:</strong> ${surah.significance}</p>
+        <button class="recite-button" onclick="openRecitePage('${surah.name}')">Recite</button>
+    `;
+
+                card.appendChild(details);
+
+                return card;
+            }
+
+        // Get the container to append cards
+        const container = document.getElementById('surahContainer');
+
+        // Create cards for each surah and append them to the container
+        surahs.forEach(surah => {
+            const card = createSurahCard(surah);
+            container.appendChild(card);
+        });
+
+        // Function to open recite page (replace this with your recitation page URL)
+        function openRecitePage(surahName) {
+            alert(`Open recite page for ${surahName}`);
+            // Replace the alert with window.open or window.location as needed
+        }
+
+
+
+    </script>
+</body>
+
+</html>
