@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Quranic Arabic - Your Website Name</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #313131, #000000);
+            color: #ffffff;
+        }
+
+        header {
+            background: linear-gradient(to bottom, #2c3e50, #1c2331);
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            background: linear-gradient(to bottom, #1c2331, #2c3e50);
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: #ecf0f1;
+            text-decoration: none;
+            padding: 10px;
+            margin: 0 10px;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background-color: #ff9999;
+            color: #1c2331;
+        }
+
+        section {
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 1200px;
+        }
+
+        .card {
+            background-color: #2c3e50;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            color: #ffffff;
+        }
+
+        h2 {
+            color: #ff9999;
+        }
+
+        h3 {
+            color: #ff9999;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+
+        .card a {
+            color: #ff9999;
+            text-decoration: none;
+        }
+
+        .card a:hover {
+            text-decoration: underline;
+        }
+
+        form {
+            max-width: 500px;
+            margin: 20px auto;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ff9999;
+            border-radius: 4px;
+            box-sizing: border-box;
+            background-color: #2c3e50;
+            color: #ffffff;
+        }
+
+        button {
+            background-color: #ff9999;
+            color: #1c2331;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #1c2331;
+            color: #ff9999;
+        }
+
+        footer {
+            background: linear-gradient(to bottom, #1c2331, #2c3e50);
+            color: #ecf0f1;
+            text-align: center;
+            padding: 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Learn Quranic Arabic - Your Website Name</h1>
+    </header>
+
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Courses</a>
+        <a href="#">Explore</a>
+        <a href="#">Contact</a>
+        <!-- Add more navbar links as needed -->
+    </nav>
+
+    <section>
+        <div class="card">
+            <h2>Explore the Beauty of Quranic Arabic</h2>
+            <p>Enhance your understanding of the Quran by delving into the beauty of Quranic Arabic. Our courses are designed to help you learn and appreciate the language of the Holy Quran.</p>
+        </div>
+        
+        <div class="card">
+            <h2>Why Learn Quranic Arabic with Us?</h2>
+            <p>Our courses are crafted by experienced instructors, focusing on both grammar and context, to provide you with a comprehensive understanding of Quranic Arabic. Join us on this journey of knowledge and spiritual growth.</p>
+        </div>
+        
+        <div class="card">
+            <h2>Start Your Learning Journey Today</h2>
+            <p>Begin your exploration of Quranic Arabic with our carefully curated courses. Whether you are a beginner or looking to deepen your knowledge, we have a course tailored for you.</p>
+            
+            <h3>Featured Courses:</h3>
+            
+            <div style="display: flex; justify-content: space-around; flex-wrap: wrap;">
+                <div class="card">
+                    <h4>Basic Quranic Arabic</h4>
+                    <p>Perfect for beginners, this course covers the fundamentals of Quranic Arabic grammar and vocabulary.</p>
+                    <a href="#">Learn More</a>
+                </div>
+
+                <div class="card">
+                    <h4>Advanced Quranic Arabic</h4>
+                    <p>For those seeking a deeper understanding, our advanced course explores complex grammar and linguistic nuances in Quranic Arabic.</p>
+                    <a href="#">Learn More</a>
+                </div>
+
+                <!-- Add more courses as needed -->
+
+            </div>
+            
+            <a href="#" style="text-decoration: none;">
+                <button>Explore All Courses</button>
+            </a>
+        </div>
+
+        <div class="card">
+            <h2>What Our Students Say</h2>
+            <div style="display: flex; justify-content: space-around; flex-wrap: wrap;">
+
+                <div class="card">
+                    <p>"I have thoroughly enjoyed the Basic Quranic Arabic course. The lessons are clear, and the instructors are knowledgeable. I highly recommend it!"</p>
+                    <p style="font-weight: bold; margin-top: 10px;">- Aisha, Student</p>
+                </div>
+
+                <div class="card">
+                    <p>"The Advanced Quranic Arabic course challenged me and deepened my understanding of the Quran. Excellent resources and guidance!"</p>
+                    <p style="font-weight: bold; margin-top: 10px;">- Ali, Student</p>
+                </div>
+
+                <!-- Add more testimonials as needed -->
+
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Contact Us</h2>
+            <p>If you have any questions or need assistance, feel free to contact us. We're here to help you on your Quranic Arabic learning journey.</p>
+            
+            <form id="contactForm">
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Your Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Your Message:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2024 Muslim Quran. All rights reserved.
+    </footer>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            // Fetch form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            // You can add your own logic here for form submission (e.g., sending an email or storing data)
+            // For demonstration purposes, an alert is shown with the form data
+            alert(`Form submitted successfully!\n\nName: ${name}\nEmail: ${email}\nMessage: ${message}`);
+        });
+    </script>
+
+</body>
+</html>
